@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 style="font-family: 'Caveat', cursive; color: pink;">Hello there, {{request.user.username}}!</h1>
+        <div class="topnav">
+
+          
+          <a href={% url 'post-create' %}>New Post</a>
+          <a href={% url 'blogpage' %}>Go Back</a>
+          <a href={% url 'home' %}>Logout</a>
+         
+
+
+
+
+        </div>
+
+        <div class="container">
+          <div class="jumbotron">
+                     <h1 class="article-title">{{object.title}}</h1>
+                     <h2>{{object.date_posted|date:"F d, Y"}}</h2>
+                     <p>By {{object.author}}</p>
+                     {% if object.author == user %}
+                        <a class="btn btn-secondary btn-sm mt-1 mb-1" href={% url 'post-update' object.id%}>Edit Post</a>
+                        <a class="btn btn-danger btn-sm mt-1 mb-1" href={% url 'post-delete' object.id%}>Delete Post</a>
+                     {% endif %}
+                     <p class="article-content">{{object.content}}</p>
+
+          </div>
+        </div>
+
+  </body>
+</html>

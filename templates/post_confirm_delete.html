@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <title>Write A Post</title>
+</head>
+<body style="background-color: pink;">
+  <div class="container">
+    <div class="jumbotron">
+      <div class="content-section">
+             <form method="POST">
+                    {% csrf_token %}
+                   <fieldset class="form-group">
+                       <legend class="border-bottom mb-4">Delete Post</legend>
+                       <h2>Are you sure you want to delete the post? "{{object.title}}"</h2>
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-danger" type="submit">Confirm, Delete</button>
+                        <a class="btn btn-outline-secondary" href={% url 'post-detail' object.id%}>Cancel</a>
+                    </div>
+                  </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html> 

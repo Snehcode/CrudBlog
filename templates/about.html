@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 style="font-family: 'Caveat', cursive;"> Write.Read.Discuss.</h1>
+        <h2 style="font-family: 'Caveat', cursive;">If you want to write or read our posts, please login. If you are new, join the community!</h2>
+        <a href="{% url 'home' %}">Go back</a>
+       
+
+
+        <img src="{% static 'images/original.jpg'%}" width="1000" height="1000" alt="">
+
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

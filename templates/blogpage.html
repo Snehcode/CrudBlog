@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 style="font-family: 'Caveat', cursive; color: pink;">Hello there, {{request.user.username}}!</h1>
+        <h3 style="font-family: 'Caveat', cursive; color: pink;">What would you like to do?</h3>
+
+        <div class="topnav">
+
+          
+          <a href={% url 'post-create' %}>New Post</a>
+
+
+          <a href={% url 'home' %}>Logout</a>
+          
+         
+
+
+
+
+        </div>
+        <div class="container">
+          <div class="jumbotron">
+                {% for post in posts%}
+                     <h1> <a class="article-title" href={% url 'post-detail' post.id %}>{{post.title}}</a></h1>
+                     <h2>{{post.date_posted|date:"F d, Y"}}</h2>
+                     <p>By {{post.author}}</p>
+                     <p class="article-content">{{post.content}}</p>
+
+
+
+                {% endfor %}
+          </div>
+        </div>
+
+  </body>
+</html>

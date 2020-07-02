@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  </head>
+  <body>
+    <div class="container">
+   <div class="jumbotron">
+    <h1 style="text-align:center;color:#FF69B4;">Sneh Blogs</h1>
+     <h1 style="font-family: 'Caveat', cursive;color:pink;">Login here :</h1>
+
+<form method="POST">
+         {% csrf_token %}
+
+           <label for="username">Username:</label>
+           <input type="text" name="username" placeholder="Username">
+  <label for="password">Password:</label>
+           <input type="password" name="password" placeholder="Password">
+
+
+
+
+         {% if form.errors %}
+                   <p class=" label label-danger">
+                       Your username and password didn't match.
+                       Please try again.
+                   </p>
+         {% endif %}
+
+
+
+         <button type="submit">Login</button>
+
+         <h3 style="font-family: 'Caveat', cursive;color:pink;">Don't have an account? Create one <a href="{% url 'signup'%}">here</a></h3>
+
+       </form>
+       <img src="{% static 'images/original.jpg'%}" width="1000" height="1000" alt="">
+
+
+
+
+
+
+
+</div>
+ </div>
+
+  </body>
+</html>

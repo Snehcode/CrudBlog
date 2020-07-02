@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  </head>
+  <body>
+    <div class="container">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        <h1 style="font-family: 'Caveat', cursive;color:pink;">Sign up here! </h1>
+
+<form style="text-align:left;" method="POST">
+
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" name="" value="Done!">
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+
+  </body>
+</html>
+
+<style>
+
+.helptext{
+display: none;
+}
+
+</style>

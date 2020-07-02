@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <title>Write A Post</title>
+</head>
+<body style="background-color: pink;">
+  <div class="container">
+    <div class="jumbotron">
+      <div class="content-section">
+             <form method="POST">
+                    {% csrf_token %}
+                   <fieldset class="form-group">
+                       <legend class="border-bottom mb-4"> Post</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Post</button>
+                    </div>
+                  </form>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html> 
